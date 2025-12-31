@@ -1,342 +1,388 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Reset untuk memastikan scroll berfungsi dengan benar */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
 :root {
-    --primary-color: #ff8fab; /* Soft Pink */
-    --secondary-color: #ffc8dd; /* Lighter Pink */
-    --accent-color: #ffb6c1; /* Light Pink */
-    --text-dark: #5d5d5d;
-    --text-light: #ffffff;
-    --bg-gradient-start: #ffeef8; /* Very light pink */
-    --bg-gradient-end: #fff0f5; /* Lavender blush */
-    --card-bg: #ffffff;
-    --transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncy transition */
+  --primary-color: #ff8fab; /* Soft Pink */
+  --secondary-color: #ffc8dd; /* Lighter Pink */
+  --accent-color: #ffb6c1; /* Light Pink */
+  --text-dark: #5d5d5d;
+  --text-light: #ffffff;
+  --bg-gradient-start: #ffeef8; /* Very light pink */
+  --bg-gradient-end: #fff0f5; /* Lavender blush */
+  --card-bg: #ffffff;
+  --transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncy transition */
 }
 
 body {
-    font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
-    min-height: 100vh;
-    overflow-x: hidden; /* Mencegah scroll horizontal */
-    position: relative;
-    color: var(--text-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  font-family: "Quicksand", sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--bg-gradient-start) 0%,
+    var(--bg-gradient-end) 100%
+  );
+  overflow-x: hidden; /* Mencegah scroll horizontal */
+  position: relative;
+  color: var(--text-dark);
+  /* Properti perataan (flex) dihapus dari sini */
 }
 
 /* Landing View */
 .landing-view {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    position: relative;
-    z-index: 10;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    padding: 1rem; /* Tambahkan padding untuk layar kecil */
+  display: flex; /* Perataan dipindah ke sini */
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Mengisi tinggi layar penuh */
+  position: relative;
+  z-index: 10;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  padding: 1rem;
 }
 
 .landing-view.fade-out {
-    opacity: 0;
-    transform: scale(0.9);
-    pointer-events: none;
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
 }
 
 .container {
-    text-align: center;
-    animation: fadeInUp 1s ease-out;
-    position: relative;
-    max-width: 90%; /* Mencegah konten terlalu lebar */
+  text-align: center;
+  animation: fadeInUp 1s ease-out;
+  position: relative;
+  max-width: 90%;
 }
 
 .subtitle {
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
-    font-weight: 700;
-    margin-bottom: 3rem;
-    color: var(--primary-color);
-    opacity: 0;
-    animation: fadeIn 1s ease-out 0.3s forwards;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var(--primary-color);
+  opacity: 0;
+  animation: fadeIn 1s ease-out 0.3s forwards;
 }
 
 .open-button {
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    color: var(--text-light);
-    border: none;
-    padding: 1.2rem 3rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-    border-radius: 50px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: var(--transition);
-    box-shadow: 0 10px 25px rgba(255, 143, 171, 0.4);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    opacity: 0;
-    animation: fadeIn 1s ease-out 0.6s forwards, wobble 2s ease-in-out 2s infinite;
+  background: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  color: var(--text-light);
+  border: none;
+  padding: 1.2rem 3rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: 0 10px 25px rgba(255, 143, 171, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 0.6s forwards, wobble 2s ease-in-out 2s infinite;
 }
 
 .open-button:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 15px 35px rgba(255, 143, 171, 0.5);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(255, 143, 171, 0.5);
 }
 
 .open-button:active {
-    transform: translateY(-2px) scale(1.02);
+  transform: translateY(-2px) scale(1.02);
 }
 
 .button-icon {
-    font-size: 1.4rem;
-    animation: heartbeat 1.5s ease-in-out infinite;
+  font-size: 1.4rem;
+  animation: heartbeat 1.5s ease-in-out infinite;
 }
 
 /* Message View */
 .message-view {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 20;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease-out;
-    background-color: rgba(255, 255, 255, 0.7);
-    padding: 1rem; /* Tambahkan padding untuk mencegah card menempel di tepi */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex; /* Perataan dipindah ke sini */
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-out;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 1rem;
 }
 
 .message-view.active {
-    opacity: 1;
-    pointer-events: all;
+  opacity: 1;
+  pointer-events: all;
 }
 
 .message-container {
-    max-width: 650px;
-    width: 100%;
-    background: var(--card-bg);
-    border-radius: 30px;
-    padding: 3rem;
-    text-align: center;
-    box-shadow: 0 20px 60px rgba(255, 143, 171, 0.3);
-    border: 3px solid var(--accent-color);
-    transform: scale(0.8) rotate(-5deg);
-    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  max-width: 650px;
+  width: 100%;
+  background: var(--card-bg);
+  border-radius: 30px;
+  padding: 3rem;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(255, 143, 171, 0.3);
+  border: 3px solid var(--accent-color);
+  transform: scale(0.8) rotate(-5deg);
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .message-view.active .message-container {
-    transform: scale(1) rotate(0deg);
+  transform: scale(1) rotate(0deg);
 }
 
 .year-badge {
-    display: inline-block;
-    background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
-    color: var(--text-light);
-    padding: 0.6rem 1.8rem;
-    border-radius: 25px;
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    animation: bounceIn 0.8s ease-out 0.3s both;
+  display: inline-block;
+  background: linear-gradient(
+    45deg,
+    var(--secondary-color),
+    var(--accent-color)
+  );
+  color: var(--text-light);
+  padding: 0.6rem 1.8rem;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  animation: bounceIn 0.8s ease-out 0.3s both;
 }
 
 .message-title {
-    font-size: clamp(2rem, 5vw, 2.8rem);
-    font-weight: 700;
-    margin-bottom: 2rem;
-    color: var(--primary-color);
-    opacity: 0;
-    animation: fadeIn 0.8s ease-out 0.5s forwards;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 0.5s forwards;
 }
 
 .message-text {
-    font-size: 1.1rem;
-    line-height: 1.9;
-    color: var(--text-dark);
-    margin-bottom: 2.5rem;
-    min-height: 200px;
-    text-align: left;
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: var(--text-dark);
+  margin-bottom: 2.5rem;
+  text-align: left;
 }
 
 .typewriter {
-    overflow: hidden;
-    white-space: pre-wrap;
+  overflow: hidden;
+  white-space: pre-wrap;
 }
 
 .signature {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 2px dashed var(--secondary-color);
-    opacity: 0;
-    animation: fadeIn 0.8s ease-out 2s forwards;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px dashed var(--secondary-color);
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 2s forwards;
 }
 
 .signature p {
-    font-size: 1rem;
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 .sender-name {
-    font-size: 1.5rem;
-    color: var(--primary-color) !important;
-    font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary-color) !important;
+  font-weight: 700;
 }
 
 .close-button {
-    background: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    padding: 0.8rem 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: var(--transition);
-    margin-top: 1.5rem;
-    opacity: 0;
-    animation: fadeIn 0.8s ease-out 2.2s forwards;
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 1.5rem;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out 2.2s forwards;
 }
 
 .close-button:hover {
-    background: var(--primary-color);
-    color: var(--text-light);
-    transform: translateY(-3px) scale(1.05);
+  background: var(--primary-color);
+  color: var(--text-light);
+  transform: translateY(-3px) scale(1.05);
 }
 
 /* Decorations */
 .decoration {
-    position: absolute;
-    font-size: 2.5rem;
-    opacity: 0.6;
-    animation: float 3s ease-in-out infinite;
+  position: absolute;
+  font-size: 2.5rem;
+  opacity: 0.6;
+  animation: float 3s ease-in-out infinite;
 }
 
 .decoration-1 {
-    top: -50px;
-    left: -50px;
-    animation-delay: 0s;
+  top: -50px;
+  left: -50px;
+  animation-delay: 0s;
 }
 
 .decoration-2 {
-    bottom: -50px;
-    right: -50px;
-    animation-delay: 1s;
+  bottom: -50px;
+  right: -50px;
+  animation-delay: 1s;
 }
 
 /* Background Elements */
 .background-elements {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .floating-shape {
-    position: absolute;
-    font-size: 1.5rem;
-    opacity: 0.4;
-    animation: float-up 10s linear infinite;
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.4;
+  animation: float-up 10s linear infinite;
 }
 
-.shape-1 { left: 10%; animation-delay: 0s; }
-.shape-2 { left: 20%; animation-delay: 2s; }
-.shape-3 { left: 30%; animation-delay: 4s; }
-.shape-4 { left: 40%; animation-delay: 6s; }
-.shape-5 { left: 50%; animation-delay: 8s; }
-.shape-6 { left: 60%; animation-delay: 1s; }
+.shape-1 {
+  left: 10%;
+  animation-delay: 0s;
+}
+.shape-2 {
+  left: 20%;
+  animation-delay: 2s;
+}
+.shape-3 {
+  left: 30%;
+  animation-delay: 4s;
+}
+.shape-4 {
+  left: 40%;
+  animation-delay: 6s;
+}
+.shape-5 {
+  left: 50%;
+  animation-delay: 8s;
+}
+.shape-6 {
+  left: 60%;
+  animation-delay: 1s;
+}
 
 /* Animations */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes bounceIn {
-    0% {
-        opacity: 0;
-        transform: scale(0.3);
-    }
-    50% {
-        transform: scale(1.05);
-    }
-    70% {
-        transform: scale(0.9);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.3); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
 }
 
 @keyframes wobble {
-    0%, 100% { transform: rotate(-3deg); }
-    50% { transform: rotate(3deg); }
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
 }
 
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 @keyframes float-up {
-    0% {
-        opacity: 0;
-        transform: translateY(100vh) rotate(0deg);
-    }
-    10% {
-        opacity: 0.4;
-    }
-    90% {
-        opacity: 0.4;
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-100vh) rotate(360deg);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(0deg);
+  }
+  10% {
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100vh) rotate(360deg);
+  }
 }
 
 /* Utility Classes */
 .hidden {
-    display: none;
+  display: none;
 }
 
 /* ============================================= */
@@ -345,91 +391,94 @@ body {
 
 /* Tablet (Potret & Landscape) */
 @media (max-width: 768px) {
-    .message-container {
-        padding: 2.5rem;
-    }
+  .message-container {
+    padding: 2.5rem;
+  }
 
-    .open-button {
-        padding: 1.1rem 2.8rem;
-        font-size: 1.1rem;
-    }
-    
-    .subtitle {
-        margin-bottom: 2.5rem;
-    }
+  .open-button {
+    padding: 1.1rem 2.8rem;
+    font-size: 1.1rem;
+  }
 
-    .decoration {
-        font-size: 2rem; /* Sedikit lebih kecil */
-    }
+  .subtitle {
+    margin-bottom: 2.5rem;
+  }
+
+  .decoration {
+    font-size: 2rem;
+  }
 }
 
 /* Mobile (Layar Kecil) */
 @media (max-width: 480px) {
-    body {
-        font-size: 16px; /* Ukuran font dasar yang nyaman */
-    }
+  body {
+    font-size: 16px;
+  }
 
-    .landing-view {
-        padding: 0.5rem;
-    }
+  .landing-view,
+  .message-view {
+    padding: 0.5rem;
+  }
 
-    .message-container {
-        padding: 2rem 1.5rem;
-        border-radius: 20px; /* Sudut lebih tumpul untuk layar kecil */
-        border-width: 2px;
-    }
+  .message-container {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+    border-width: 2px;
+  }
 
-    .open-button {
-        padding: 1rem 2.5rem;
-        font-size: 1rem;
-        width: 90%; /* Tombol lebih lebar agar mudah di-tap */
-        max-width: 300px;
-    }
+  .open-button {
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    width: 90%;
+    max-width: 300px;
+  }
 
-    .subtitle {
-        margin-bottom: 2rem;
-    }
+  .subtitle {
+    margin-bottom: 2rem;
+  }
 
-    .year-badge {
-        font-size: 1rem;
-        padding: 0.5rem 1.5rem;
-        margin-bottom: 1.5rem;
-    }
+  .year-badge {
+    font-size: 1rem;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
 
-    .message-title {
-        margin-bottom: 1.5rem;
-    }
+  .message-title {
+    margin-bottom: 1.5rem;
+  }
 
-    .message-text {
-        font-size: 1rem;
-        line-height: 1.7;
-        margin-bottom: 2rem;
-    }
+  .message-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
 
-    .signature {
-        margin-top: 1.5rem;
-        padding-top: 1.5rem;
-    }
+  .signature {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
 
-    .sender-name {
-        font-size: 1.3rem;
-    }
+  .sender-name {
+    font-size: 1.3rem;
+  }
 
-    .close-button {
-        padding: 0.7rem 1.8rem;
-        font-size: 0.95rem;
-    }
+  .close-button {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.95rem;
+  }
 
-    /* Sembunyikan beberapa dekorasi agar tidak berantakan */
-    .decoration {
-        display: none;
-    }
+  .decoration {
+    display: none;
+  }
 
-    .shape-3, .shape-4, .shape-5, .shape-6 {
-        display: none; /* Kurangi bentuk melayang */
-    }
-    
-    .floating-shape {
-        font-size: 1.2rem; /* Ukuran lebih kecil */
-    }
+  .shape-3,
+  .shape-4,
+  .shape-5,
+  .shape-6 {
+    display: none;
+  }
+
+  .floating-shape {
+    font-size: 1.2rem;
+  }
 }

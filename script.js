@@ -6,11 +6,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const messageText = document.getElementById("messageText");
 
   // Pesan personal versi imut - Ganti dengan pesan Anda
-  const personalMessage = `sebelum 2025 ini berakhir dan berganti menjadi tahun 2026, ahmuy mau bilang makasih buat shafiruy, km bener-bener bikin hidup aku berwarna shaff!, gua bener bener bangga sama lu yang udah ngejalanin hidup yang terasa biasa aja untuk di dengar namun kalau diijalanin pasti berat buat u kann, i feel u shaf, shafira wanita kuat!, proudd!!!!
+  const personalMessage = `Haiii! ✨
 
-tahun ini buat ahmuy beneran ditutup oleh kebahagiaan engga kaya tahun tahun sebelum nya, dan kebahagiaan itu muncul dari diri shafira, ibarat ruangan gelap diterangin sama lampu yaitu km.
+Selamat tahun baru 2025! Semoga di tahun yang baru ini,
+semua yang kamu mau bisa terwujud ya. Semoga harimu selalu
+dipenuhi sama senyum, tawa, dan hal-hal manis lainnya. 🍭
 
-makasihh banyak udah mejadi pendengar yang baik di setiap cerita-cerita ahmad, dan juga menjadi bagian terbaik di tahun inii.`;
+Makasih udah jadi temen yang paling asik dan seru.
+Bareng kamu, semuanya jadi lebih berwarna, kayak pelangi
+pas hujan reda. 🌈
+
+Di tahun ini, kita harus lebih sering ketawa ya,
+lebih banyak jalan-jalan, dan lebih banyak makan enak! 😋
+Aku janji bakal selalu ada di sini buat kamu, apapun yang
+terjadi.
+
+Kamu adalah yang terbaik! Jangan pernah berubah ya.
+Selamat tahun baru, sayangkuu! 🥰💕
+Semoga kita jadi lebih imut lagi di tahun ini, hehe.`;
 
   // Typewriter effect
   function typeWriter(text, element, speed = 45) {
@@ -92,6 +105,10 @@ makasihh banyak udah mejadi pendengar yang baik di setiap cerita-cerita ahmad, d
           // JALANKAN EFEK CONFETTI SAAT PESAN MUNCUL
           shootConfetti();
 
+          // --> TAMBAHKAN BARIS INI <--
+          // Pastikan body bisa di-scroll saat pesan terbuka
+          document.body.style.overflow = "auto";
+
           // Start typewriter effect after a short delay
           setTimeout(() => {
             typeWriter(personalMessage, messageText, 40);
@@ -118,6 +135,10 @@ makasihh banyak udah mejadi pendengar yang baik di setiap cerita-cerita ahmad, d
       // Clear message text
       messageText.innerHTML = "";
       messageText.classList.remove("typewriter");
+
+      // --> TAMBAHKAN BARIS INI <--
+      // Kembalikan overflow ke hidden untuk mencegah scroll di landing page
+      document.body.style.overflow = "hidden";
     }, 500);
   });
 
