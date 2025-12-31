@@ -20,7 +20,7 @@ body {
     font-family: 'Quicksand', sans-serif;
     background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Mencegah scroll horizontal */
     position: relative;
     color: var(--text-dark);
     display: flex;
@@ -37,6 +37,7 @@ body {
     position: relative;
     z-index: 10;
     transition: opacity 0.5s ease, transform 0.5s ease;
+    padding: 1rem; /* Tambahkan padding untuk layar kecil */
 }
 
 .landing-view.fade-out {
@@ -49,6 +50,7 @@ body {
     text-align: center;
     animation: fadeInUp 1s ease-out;
     position: relative;
+    max-width: 90%; /* Mencegah konten terlalu lebar */
 }
 
 .subtitle {
@@ -109,6 +111,7 @@ body {
     pointer-events: none;
     transition: opacity 0.5s ease-out;
     background-color: rgba(255, 255, 255, 0.7);
+    padding: 1rem; /* Tambahkan padding untuk mencegah card menempel di tepi */
 }
 
 .message-view.active {
@@ -118,7 +121,7 @@ body {
 
 .message-container {
     max-width: 650px;
-    width: 90%;
+    width: 100%;
     background: var(--card-bg);
     border-radius: 30px;
     padding: 3rem;
@@ -255,7 +258,6 @@ body {
 .shape-5 { left: 50%; animation-delay: 8s; }
 .shape-6 { left: 60%; animation-delay: 1s; }
 
-
 /* Animations */
 @keyframes fadeIn {
     from {
@@ -332,41 +334,102 @@ body {
     }
 }
 
-
 /* Utility Classes */
 .hidden {
     display: none;
 }
 
-/* Responsive Design */
+/* ============================================= */
+/* RESPONSIVE DESIGN - PERBAIKAN UTAMA DI SINI */
+/* ============================================= */
+
+/* Tablet (Potret & Landscape) */
 @media (max-width: 768px) {
     .message-container {
-        padding: 2rem;
-        margin: 1rem;
+        padding: 2.5rem;
     }
-    
+
     .open-button {
-        padding: 1rem 2.5rem;
+        padding: 1.1rem 2.8rem;
         font-size: 1.1rem;
     }
     
     .subtitle {
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .decoration {
+        font-size: 2rem; /* Sedikit lebih kecil */
     }
 }
 
+/* Mobile (Layar Kecil) */
 @media (max-width: 480px) {
-    .message-container {
-        padding: 1.5rem;
+    body {
+        font-size: 16px; /* Ukuran font dasar yang nyaman */
     }
-    
+
+    .landing-view {
+        padding: 0.5rem;
+    }
+
+    .message-container {
+        padding: 2rem 1.5rem;
+        border-radius: 20px; /* Sudut lebih tumpul untuk layar kecil */
+        border-width: 2px;
+    }
+
+    .open-button {
+        padding: 1rem 2.5rem;
+        font-size: 1rem;
+        width: 90%; /* Tombol lebih lebar agar mudah di-tap */
+        max-width: 300px;
+    }
+
+    .subtitle {
+        margin-bottom: 2rem;
+    }
+
     .year-badge {
         font-size: 1rem;
-        padding: 0.5rem 1.2rem;
+        padding: 0.5rem 1.5rem;
+        margin-bottom: 1.5rem;
     }
-    
+
+    .message-title {
+        margin-bottom: 1.5rem;
+    }
+
     .message-text {
         font-size: 1rem;
         line-height: 1.7;
+        margin-bottom: 2rem;
+    }
+
+    .signature {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+    }
+
+    .sender-name {
+        font-size: 1.3rem;
+    }
+
+    .close-button {
+        padding: 0.7rem 1.8rem;
+        font-size: 0.95rem;
+    }
+
+    /* Sembunyikan beberapa dekorasi agar tidak berantakan */
+    .decoration {
+        display: none;
+    }
+
+    .shape-3, .shape-4, .shape-5, .shape-6 {
+        display: none; /* Kurangi bentuk melayang */
+    }
+    
+    .floating-shape {
+        font-size: 1.2rem; /* Ukuran lebih kecil */
     }
 }
