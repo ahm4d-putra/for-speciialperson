@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dari abang-abang ITB</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Landing View -->
+    <div id="landing" class="landing-view">
+      <div class="container">
+        <div class="decoration decoration-1">🎀</div>
+        <h1 class="subtitle">Psst... ada pesan nih!</h1>
+        <button id="openBtn" class="open-button">
+          <span class="button-text">Buka Pesan</span>
+          <span class="button-icon">💖</span>
+        </button>
+        <div class="decoration decoration-2">🌸</div>
+      </div>
+    </div>
+
+    <!-- Message View -->
+    <div id="messageView" class="message-view hidden">
+      <div class="message-container">
+        <h2 class="message-title">Shafira Alya</h2>
+        <div id="messageText" class="message-text"></div>
+        <div class="signature">
+          <p>Dari,</p>
+          <p class="sender-name">ahmouy</p>
+        </div>
+        <button id="closeBtn" class="close-button">Tutup 💌</button>
+      </div>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="background-elements">
+      <div class="floating-shape shape-1">✨</div>
+      <div class="floating-shape shape-2">🌟</div>
+      <div class="floating-shape shape-3">💫</div>
+      <div class="floating-shape shape-4">⭐</div>
+      <div class="floating-shape shape-5">🌙</div>
+      <div class="floating-shape shape-6">☁️</div>
+    </div>
+
+    <!-- TAMBAHKAN LIBRARY CONFETTI DI SINI -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
